@@ -13,7 +13,7 @@
     
     body {
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #1a1a1f;
+      background-color: #1a1a25;
       color: #ffffff;
       line-height: 1.6;
       padding: 20px;
@@ -29,7 +29,7 @@
     }
     
     .profile-box {
-      background-color: #2a2a35;
+      background-color: #2a2a40;
       border-radius: 20px;
       padding: 30px;
       text-align: center;
@@ -72,6 +72,18 @@
       font-size: 42px;
       font-weight: 600;
       color: #ffffff;
+      margin-bottom: 5px;
+    }
+    
+    .profile-location {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
     }
     
     .links-section {
@@ -83,27 +95,27 @@
     }
     
     .link-item {
-      background-color: #3a3a45;
+      background-color: #3a3a50;
       padding: 12px 20px;
       border-radius: 25px;
       text-decoration: none;
       color: #ffffff;
       font-weight: 500;
       transition: all 0.3s ease;
-      border: 1px solid #4a4a55;
+      border: 1px solid #4a4a60;
       display: flex;
       align-items: center;
       gap: 8px;
     }
     
     .link-item:hover {
-      background-color: #4a4a55;
+      background-color: #4a4a65;
       transform: translateY(-2px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
     
     .cv-box {
-      background-color: #2a2a35;
+      background-color: #2a2a40;
       border-radius: 20px;
       padding: 30px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -121,7 +133,7 @@
     .cv-item {
       margin-bottom: 25px;
       padding-bottom: 20px;
-      border-bottom: 1px solid #3a3a45;
+      border-bottom: 1px solid #3a3a50;
     }
     
     .cv-item:last-child {
@@ -188,7 +200,7 @@
     }
     
     .modal-content {
-      background-color: #2a2a35;
+      background-color: #2a2a40;
       border-radius: 20px;
       padding: 30px;
       max-width: 600px;
@@ -224,7 +236,7 @@
     }
     
     .modal-close:hover {
-      background-color: #3a3a45;
+      background-color: #3a3a50;
     }
     
     .modal-title {
@@ -269,6 +281,11 @@
       
       .profile-name {
         font-size: 28px;
+        margin-bottom: 3px;
+      }
+      
+      .profile-location {
+        font-size: 12px;
       }
       
       .links-section {
@@ -342,6 +359,11 @@
       
       .profile-name {
         font-size: 24px;
+        margin-bottom: 2px;
+      }
+      
+      .profile-location {
+        font-size: 11px;
       }
       
       .link-item {
@@ -355,12 +377,15 @@
   <div class="container">
     <!-- Profile Box -->
     <div class="profile-box">
-      <div class="profile-header">
-        <div class="profile-image">
-          <img src="portrait.jpg" alt="Dain" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
+              <div class="profile-header">
+          <div class="profile-image">
+            <img src="portrait.jpg" alt="Dain" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
+          </div>
+          <div>
+            <div class="profile-name">Jan Baumeister</div>
+            <div class="profile-location">🏠 Cologne</div>
+          </div>
         </div>
-        <div class="profile-name">Jan Baumeister</div>
-      </div>
               <div class="links-section">
           <a href="instagram.com/janbms/" class="link-item">📷 Instagram</a>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link-item">💼 LinkedIn</a>
