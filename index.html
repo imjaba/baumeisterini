@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Baumeisterini</title>
+  <title>baumeisterini</title>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Manrope:wght@400&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,7 +13,7 @@
     
     body {
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #2a2a2a;
+      background-color: #1a1a1f;
       color: #ffffff;
       line-height: 1.6;
       padding: 20px;
@@ -29,7 +29,7 @@
     }
     
     .profile-box {
-      background-color: #3a3a3a;
+      background-color: #2a2a35;
       border-radius: 20px;
       padding: 30px;
       text-align: center;
@@ -45,8 +45,8 @@
     }
     
     .profile-image {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       background-color: #555;
       display: flex;
@@ -63,11 +63,13 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
+      object-position: center;
+      transform: scale(1.6);
     }
     
     .profile-name {
       font-family: 'Comfortaa', cursive;
-      font-size: 28px;
+      font-size: 42px;
       font-weight: 600;
       color: #ffffff;
     }
@@ -81,24 +83,27 @@
     }
     
     .link-item {
-      background-color: #4a4a4a;
+      background-color: #3a3a45;
       padding: 12px 20px;
       border-radius: 25px;
       text-decoration: none;
       color: #ffffff;
       font-weight: 500;
       transition: all 0.3s ease;
-      border: 1px solid #555;
+      border: 1px solid #4a4a55;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .link-item:hover {
-      background-color: #5a5a5a;
+      background-color: #4a4a55;
       transform: translateY(-2px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
     
     .cv-box {
-      background-color: #3a3a3a;
+      background-color: #2a2a35;
       border-radius: 20px;
       padding: 30px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -116,7 +121,7 @@
     .cv-item {
       margin-bottom: 25px;
       padding-bottom: 20px;
-      border-bottom: 1px solid #4a4a4a;
+      border-bottom: 1px solid #3a3a45;
     }
     
     .cv-item:last-child {
@@ -160,11 +165,6 @@
       background-color: transparent;
       cursor: pointer;
       z-index: 10;
-      transition: background-color 0.3s ease;
-    }
-    
-    .hidden-box:hover {
-      background-color: rgba(255, 255, 255, 0.05);
     }
     
     .modal-overlay {
@@ -188,7 +188,7 @@
     }
     
     .modal-content {
-      background-color: #3a3a3a;
+      background-color: #2a2a35;
       border-radius: 20px;
       padding: 30px;
       max-width: 600px;
@@ -224,7 +224,7 @@
     }
     
     .modal-close:hover {
-      background-color: #4a4a4a;
+      background-color: #3a3a45;
     }
     
     .modal-title {
@@ -242,6 +242,113 @@
       color: #ccc;
       line-height: 1.6;
     }
+    
+    /* Mobile Optimization */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        gap: 20px;
+      }
+      
+      .profile-box {
+        padding: 20px;
+        border-radius: 15px;
+      }
+      
+      .profile-header {
+        gap: 15px;
+      }
+      
+      .profile-image {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .profile-name {
+        font-size: 28px;
+      }
+      
+      .links-section {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .link-item {
+        padding: 10px 16px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+      }
+      
+      .cv-box {
+        padding: 20px;
+        border-radius: 15px;
+      }
+      
+      .cv-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      
+      .cv-item {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+      }
+      
+      .cv-position {
+        font-size: 16px;
+      }
+      
+      .cv-company {
+        font-size: 14px;
+      }
+      
+      .cv-description {
+        font-size: 13px;
+      }
+      
+      .modal-content {
+        padding: 20px;
+        border-radius: 15px;
+        width: 95%;
+      }
+      
+      .modal-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      
+      .modal-text {
+        font-size: 14px;
+      }
+    }
+    
+    /* Extra small mobile devices */
+    @media (max-width: 480px) {
+      body {
+        padding: 8px;
+      }
+      
+      .profile-box,
+      .cv-box {
+        padding: 15px;
+        border-radius: 12px;
+      }
+      
+      .profile-name {
+        font-size: 24px;
+      }
+      
+      .link-item {
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -254,11 +361,11 @@
         </div>
         <div class="profile-name">Jan Baumeister</div>
       </div>
-      <div class="links-section">
-        <a href="instagram.com/janbms" class="link-item">Instagram</a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link-item">LinkedIn</a>
-        <a href="https://chat.whatsapp.com/FFSSeRNljudJIITBEQDrzh" class="link-item">WhatsApp Trading</a>
-      </div>
+              <div class="links-section">
+          <a href="instagram.com/janbms/" class="link-item">📷 Instagram</a>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link-item">💼 LinkedIn</a>
+          <a href="https://chat.whatsapp.com/FFSSeRNljudJIITBEQDrzh" class="link-item">📈 Trading Community</a>
+        </div>
     </div>
     
     <!-- CV Box -->
