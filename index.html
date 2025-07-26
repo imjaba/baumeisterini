@@ -3,26 +3,188 @@
 <head>
   <meta charset="UTF-8" />
   <title>Baumeisterini</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-family: Arial, sans-serif;
     }
     
-    h1, p {
-      margin: 10px 0;
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #2a2a2a;
+      color: #ffffff;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .profile-box {
+      background-color: #3a3a3a;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background-color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: #999;
+      border: 4px solid #4a4a4a;
+    }
+    
+    .profile-name {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    
+    .links-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .link-item {
+      background-color: #4a4a4a;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid #555;
+    }
+    
+    .link-item:hover {
+      background-color: #5a5a5a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cv-box {
+      background-color: #3a3a3a;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cv-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: #ffffff;
+      text-align: center;
+    }
+    
+    .cv-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #4a4a4a;
+    }
+    
+    .cv-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    
+    .cv-period {
+      font-size: 14px;
+      color: #999;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    
+    .cv-position {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    
+    .cv-company {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 8px;
+    }
+    
+    .cv-description {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to my site!</h1>
-  <p>This is hosted via GitHub Pages and uses a custom domain.</p>
+  <div class="container">
+    <!-- Profile Box -->
+    <div class="profile-box">
+      <div class="profile-image">
+        👤
+      </div>
+      <div class="profile-name">Dain</div>
+      <div class="links-section">
+        <a href="#" class="link-item">LinkedIn</a>
+        <a href="#" class="link-item">GitHub</a>
+        <a href="#" class="link-item">Portfolio</a>
+        <a href="#" class="link-item">Email</a>
+      </div>
+    </div>
+    
+    <!-- CV Box -->
+    <div class="cv-box">
+      <h2 class="cv-title">Lebenslauf</h2>
+      
+      <div class="cv-item">
+        <div class="cv-period">2023 - Heute</div>
+        <div class="cv-position">Senior Software Engineer</div>
+        <div class="cv-company">Tech Company GmbH</div>
+        <div class="cv-description">
+          Entwicklung von Webanwendungen mit modernen Technologien. 
+          Verantwortlich für die Architektur und das Team-Leading von 5 Entwicklern.
+        </div>
+      </div>
+      
+      <div class="cv-item">
+        <div class="cv-period">2020 - 2023</div>
+        <div class="cv-position">Full Stack Developer</div>
+        <div class="cv-company">Startup AG</div>
+        <div class="cv-description">
+          Entwicklung von React und Node.js Anwendungen. 
+          Implementierung von REST APIs und Datenbankdesign.
+        </div>
+      </div>
+      
+      <div class="cv-item">
+        <div class="cv-period">2018 - 2020</div>
+        <div class="cv-position">Junior Developer</div>
+        <div class="cv-company">Digital Agency</div>
+        <div class="cv-description">
+          Frontend-Entwicklung mit HTML, CSS und JavaScript. 
+          Arbeit an verschiedenen Kundenprojekten.
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
