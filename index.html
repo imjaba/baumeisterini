@@ -36,25 +36,39 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
     
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
     .profile-image {
-      width: 120px;
-      height: 120px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      margin: 0 auto 20px;
       background-color: #555;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 48px;
+      font-size: 32px;
       color: #999;
-      border: 4px solid #4a4a4a;
+      border: 3px solid #4a4a4a;
+      flex-shrink: 0;
+    }
+    
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
     }
     
     .profile-name {
       font-family: 'Comfortaa', cursive;
       font-size: 28px;
       font-weight: 600;
-      margin-bottom: 15px;
       color: #ffffff;
     }
     
@@ -69,7 +83,7 @@
     .link-item {
       background-color: #4a4a4a;
       padding: 12px 20px;
-      border-radius: 12px;
+      border-radius: 25px;
       text-decoration: none;
       color: #ffffff;
       font-weight: 500;
@@ -136,26 +150,120 @@
       color: #aaa;
       line-height: 1.5;
     }
+    
+    .hidden-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background-color: transparent;
+      cursor: pointer;
+      z-index: 10;
+      transition: background-color 0.3s ease;
+    }
+    
+    .hidden-box:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .modal-content {
+      background-color: #3a3a3a;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      background-color: #4a4a4a;
+    }
+    
+    .modal-title {
+      font-family: 'Comfortaa', cursive;
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+      padding-right: 40px;
+    }
+    
+    .modal-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      color: #ccc;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Profile Box -->
     <div class="profile-box">
-      <div class="profile-image">
-        👤
+      <div class="profile-header">
+        <div class="profile-image">
+          <img src="portrait.jpg" alt="Dain" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
+        </div>
+        <div class="profile-name">Dain</div>
       </div>
-      <div class="profile-name">Dain</div>
       <div class="links-section">
-        <a href="#" class="link-item">LinkedIn</a>
-        <a href="#" class="link-item">GitHub</a>
-        <a href="#" class="link-item">Portfolio</a>
-        <a href="#" class="link-item">Email</a>
+        <a href="instagram.com/janbms" class="link-item">Instagram</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link-item">LinkedIn</a>
+        <a href="https://chat.whatsapp.com/FFSSeRNljudJIITBEQDrzh" class="link-item">WhatsApp Trading</a>
       </div>
     </div>
     
     <!-- CV Box -->
-    <div class="cv-box">
+    <div class="cv-box" style="position: relative;">
+      <div class="hidden-box" onclick="openModal()"></div>
       <h2 class="cv-title">Curriculum Vitae</h2>
       
       <div class="cv-item">
@@ -184,7 +292,47 @@
           Study of Business Administration which was completed without obtaining a degree.
         </div>
       </div>
+          </div>
     </div>
-  </div>
-</body>
+    
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <h2 class="modal-title">Hidden Content</h2>
+        <div class="modal-text">
+          <p>This is the hidden content that appears when you click on the top half of the CV box. You can put any information here that you want to keep private or show only to those who know to look for it.</p>
+          <p>Feel free to customize this content with whatever you'd like to share!</p>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      function openModal() {
+        const modal = document.getElementById('modal');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      
+      // Close modal when clicking outside
+      document.getElementById('modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal();
+        }
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
 </html>
