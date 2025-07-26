@@ -56,6 +56,18 @@
       color: #999;
       border: 3px solid #4a4a4a;
       flex-shrink: 0;
+      position: relative;
+    }
+    
+    .photo-popup-area {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      height: 20px;
+      background-color: transparent;
+      cursor: pointer;
+      z-index: 15;
     }
     
     .profile-image img {
@@ -197,6 +209,44 @@
       z-index: 1000;
       opacity: 0;
       transition: opacity 0.3s ease;
+    }
+    
+    .gif-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .gif-modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .gif-modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+    }
+    
+    .gif-modal-overlay.active .gif-modal-content {
+      transform: scale(1);
+    }
+    
+    .gif-modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
     
     .modal-overlay.active {
@@ -394,6 +444,7 @@
     <div class="profile-box">
               <div class="profile-header">
           <div class="profile-image">
+            <div class="photo-popup-area" onclick="openGifModal()"></div>
             <img src="portrait.jpg" alt="Dain" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
           </div>
           <div>
@@ -463,6 +514,13 @@
       </div>
     </div>
     
+    <!-- GIF Modal -->
+    <div class="gif-modal-overlay" id="gifModal">
+      <div class="gif-modal-content">
+        <img src="freakyahh.gif" alt="Fun GIF" onclick="closeGifModal()">
+      </div>
+    </div>
+    
     <script>
       function openModal() {
         const modal = document.getElementById('modal');
@@ -487,6 +545,26 @@
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
           closeModal();
+          closeGifModal();
+        }
+      });
+      
+      function openGifModal() {
+        const gifModal = document.getElementById('gifModal');
+        gifModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeGifModal() {
+        const gifModal = document.getElementById('gifModal');
+        gifModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      
+      // Close GIF modal when clicking outside
+      document.getElementById('gifModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeGifModal();
         }
       });
     </script>
