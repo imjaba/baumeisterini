@@ -246,12 +246,13 @@
     }
     
     .gif-modal-content img {
-      width: 400%;
-      height: 400%;
-      object-fit: contain;
+      width: auto;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      transform: scale(4);
       border-radius: 10px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-      transform: translate(-37.5%, -37.5%);
     }
     
     .modal-overlay.active {
